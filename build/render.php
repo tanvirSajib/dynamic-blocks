@@ -1,10 +1,12 @@
 <?php 
-$arg = array(
-    'posts_per_page'    => $attributes['numberOfPosts'],
-    'post_status'       => 'publish'
+$args = array(
+    'posts_per_page' => $attributes['numberOfPosts'],
+    'post_status' => 'publish',
+    'order' => $attributes['order'],
+    'orderby' => $attributes['orderBy'],
 );
 
-$recent_posts = get_posts( $arg );
+$recent_posts = get_posts( $args );
 
 $posts = '<ul ' . get_block_wrapper_attributes() . '>';
     foreach($recent_posts as $post){
